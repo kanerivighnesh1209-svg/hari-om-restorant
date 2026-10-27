@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Market Shopping</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+.header {
+    background: #111;
+    color: white;
+    padding: 22px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 28px;
+}
+
+.header p {
+    margin-top: 6px;
+    color: #ccc;
+}
+
+/* HERO */
+
+.hero img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+/* BUSINESS INFO */
+
+.business-info {
+    padding: 20px;
+}
+
+.business-info h2 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.category {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.rating {
+    margin: 10px 0;
+}
+
+.stars {
+    color: #f5a623;
+    font-size: 20px;
+}
+
+.open {
+    color: green;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* BUTTONS */
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 0 20px 20px;
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #222;
+    background: #f1f1f1;
+    padding: 14px 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover {
+    background: #ddd;
+}
+
+.btn-icon {
+    font-size: 22px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+/* SECTIONS */
+
+.section {
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+.section h3 {
+    margin-bottom: 15px;
+}
+
+/* SERVICES */
+
+.services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.service {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* MAP */
+
+.map {
+    width: 100%;
+    height: 250px;
+    border: 0;
+    border-radius: 10px;
+}
+
+/* REVIEW */
+
+.review {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+
+.footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* MOBILE */
+
+@media(max-width: 500px) {
+
+    .buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero img {
+        height: 200px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h1 id="businessName"></h1>
+
+<p id="category"></p>
+
+</div>
+
+
+<!-- IMAGE -->
+
+<div class="hero">
+
+<img
+src="https://images.unsplash.com/photo-1601598851547-4302969d1f3c?auto=format&fit=crop&w=1000&q=80"
+alt="Market Shopping">
+
+</div>
+
+
+<!-- BUSINESS INFORMATION -->
+
+<div class="business-info">
+
+<h2 id="businessName2"></h2>
+
+<p class="category" id="category2"></p>
+
+<div class="rating">
+
+<span class="stars">*****</span>
+
+<strong id="rating"></strong>
+
+<span id="reviews"></span>
+
+</div>
+
+<p class="open" id="openingTime"></p>
+
+<p style="margin-top:10px;">
+Address:
+<span id="address"></span>
+</p>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+<!-- CALL -->
+
+<a
+class="btn"
+href="tel:+918999303416">
+
+<div class="btn-icon">CALL</div>
+
+Call
+
+</a>
+
+
+<!-- DIRECTIONS -->
+
+<a
+class="btn"
+href="https://www.google.com/maps/dir/?api=1&destination=Main%20Road%2C%20Vasai%2C%20Maharashtra"
+target="_blank">
+
+<div class="btn-icon">MAP</div>
+
+Directions
+
+</a>
+
+
+<!-- WHATSAPP -->
+
+<a
+class="btn"
+href="https://wa.me/918999303416?text=Hello%20Market%20Shopping"
+target="_blank">
+
+<div class="btn-icon">CHAT</div>
+
+WhatsApp
+
+</a>
+
+
+<!-- SHARE -->
+
+<button
+class="btn"
+onclick="sharePage()">
+
+<div class="btn-icon">SHARE</div>
+
+Share
+
+</button>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<div class="section">
+
+<h3>About Business</h3>
+
+<p>
+
+Welcome to <strong id="aboutName"></strong>.
+
+We provide quality products and a convenient
+shopping experience for customers.
+
+</p>
+
+</div>
+
+
+<!-- SERVICES -->
+
+<div class="section">
+
+<h3>Services</h3>
+
+<div class="services">
+
+<div class="service">
+Grocery Shopping
+</div>
+
+<div class="service">
+Daily Essentials
+</div>
+
+<div class="service">
+Product Collection
+</div>
+
+<div class="service">
+Local Shopping
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LOCATION -->
+
+<div class="section">
+
+<h3>Location</h3>
+
+<iframe
+class="map"
+src="https://www.google.com/maps?q=Main%20Road%2C%20Vasai%2C%20Maharashtra&output=embed"
+loading="lazy">
+</iframe>
+
+</div>
+
+
+<!-- REVIEWS -->
+
+<div class="section">
+
+<h3>Customer Reviews</h3>
+
+<div class="review">
+
+<strong>?????</strong>
+
+<br>
+
+Good place for daily shopping.
+
+</div>
+
+<div class="review">
+
+<strong>????</strong>
+
+<br>
+
+Good products and convenient location.
+
+</div>
+
+<p>
+
+Overall Rating:
+
+<strong id="rating2"></strong> / 5
+
+</p>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<p id="footerName"></p>
+
+<p style="margin-top:5px;">
+© 2026 All Rights Reserved
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ==========================================
+   CUSTOMER DETAILS
+   CHANGE ONLY THESE
+   ========================================== */
+
+const BUSINESS_NAME = "Market Shopping";
+
+const PHONE_NUMBER = "918999303416";
+
+const WHATSAPP_NUMBER = "918999303416";
+
+const BUSINESS_ADDRESS =
+"Main Road, Vasai, Maharashtra";
+
+const OPENING_TIME =
+"Open - Closes 9 PM";
+
+const CATEGORY = "Mart";
+
+const RATING = "3";
+
+const REVIEWS = "30";
+
+
+/* ==========================================
+   DISPLAY INFORMATION
+   ========================================== */
+
+document.getElementById("businessName").textContent =
+BUSINESS_NAME;
+
+document.getElementById("businessName2").textContent =
+BUSINESS_NAME;
+
+document.getElementById("aboutName").textContent =
+BUSINESS_NAME;
+
+document.getElementById("footerName").textContent =
+BUSINESS_NAME;
+
+document.getElementById("category").textContent =
+CATEGORY;
+
+document.getElementById("category2").textContent =
+CATEGORY;
+
+document.getElementById("rating").textContent =
+RATING;
+
+document.getElementById("rating2").textContent =
+RATING;
+
+document.getElementById("reviews").textContent =
+"(" + REVIEWS + " reviews)";
+
+document.getElementById("openingTime").textContent =
+OPENING_TIME;
+
+document.getElementById("address").textContent =
+BUSINESS_ADDRESS;
+
+
+/* ==========================================
+   SHARE BUTTON
+   ========================================== */
+
+function sharePage() {
+
+    if (navigator.share) {
+
+        navigator.share({
+
+            title: BUSINESS_NAME,
+
+            text:
+            BUSINESS_NAME +
+            " - " +
+            CATEGORY,
+
+            url: window.location.href
+
+        });
+
+    } else {
+
+        alert(
+        "Copy this website link and share it with others."
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
